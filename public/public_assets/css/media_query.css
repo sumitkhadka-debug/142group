@@ -1,0 +1,41 @@
+/* search icon*/
+    @media (min-width: 1200px) {  .search_icon{ right: 20px !important; }  }
+
+/*navbar brand*/
+    @media (max-width: 1250px){
+                                    .navbar-brand{
+                                                    position: inherit !important;
+                                                    left: inherit !important;
+                                                    top:inherit;
+                                                    -webkit-transform:inherit !important;
+                                                    -moz-transform:inherit !important;
+                                                    -ms-transform:inherit !important;
+                                                    -o-transform:inherit !important;
+                                                    transform:inherit !important;
+                                                 }
+                             }
+
+/* max width 1024 */
+    @media (max-width: 1024px) {
+                                    /* body font */
+                                        html { font-size: calc(1em + 1vw) }
+
+                                    /* footer copyright */
+                                        .footer-copyright{position: initial !important;}
+
+                                    /* Collapse card */
+                                            .accordion .collapse_card:nth-child(odd) .card-body,
+                                            .accordion .collapse_card:nth-child(even) .card-body{
+                                                                                                    margin: initial !important;
+                                                                                                    text-align: left !important;
+                                                                                                }
+
+                                            .accordion .card-header{ text-align: left !important;}
+
+                                            .accordion .collapse_card:nth-child(even) .card-header img{ float: right; }
+
+                                   /* form-group label */
+                                        .form-group label{top:-15px !important;}
+                               }
+
+
