@@ -21,6 +21,16 @@ class CreateCategoriesTable extends Migration
                     $table->boolean('status');
                     $table->timestamps();
                 });
+
+            Schema::create('services', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('cat_id');
+            $table->string('name');
+            $table->text('description');
+            $table->boolean('status');
+            $table->timestamps();
+            $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
+        });
         }
 
     /**

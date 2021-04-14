@@ -89,7 +89,8 @@ use App\Models\Admin\Categories;
     Route::post('/addCat',[ServiceController::class,'addCat']); 
     Route::post('/addService',[ServiceController::class,'add']); 
     Route::get('/deleteService/{id}',[ServiceController::class,'destroy']);  
-    Route::get('/deleteCat/{id}',[ServiceController::class,'destroyCat']);  
+    Route::get('/deleteCat/{id}',[ServiceController::class,'destroyCat']);
+    Route::get('/viewservice', [ServiceController::class, 'viewService']);
 
 //admin member route
     Route::get('/admin/member',[MemberController::class,'index']);

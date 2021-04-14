@@ -14,13 +14,19 @@ class ServiceController extends Controller
     //index route
     public function index()
     {
-        
-        $all_data   =  Categories::with('service')->get();
-        $all_cat    =  categories::all();
-        
 
-        return view('admin.service.index',['all_data'=>$all_data,'all_cat'=>$all_cat]);
+        $all_data = Categories::all();
+        return view('admin.service.index', compact('all_data'));
+        
+        
    
+    }
+
+    public function viewService()
+    {
+        $category = Categories::with('service')->get();
+        dd($category);
+        return view('service.index', compact('category'));
     }
 
 //create service
@@ -37,20 +43,6 @@ public function createCat()
     }    
 
 
-//add data    
-public function add(Request $request)
-    {
-        $service = new Service();
-        $service = $request->validate([
-                                    'cat_id' => 'required|integer',
-                                    'name' => 'required|string|unique:services',
-                                    'description' => 'required|string',
-                                    'status' => 'required',
-        ]);
-        Category::find($request->cat_id)->service()->create($service);
-        // $service = Service::create($service);
-        return redirect('admin/service')->with('success','Service Created Success');
-    }
 
 
 //delete data from server
@@ -71,7 +63,7 @@ $cat = $request->validate([
                                     'status'=>'required',
                                 ]);
 
-$cat = Categories::create($cat);
+Categories::insert($cat);
 return redirect('admin/service')->with('success','Category Added Success');
 
 }  
@@ -85,4 +77,23 @@ $destroy_data=Categories::find($id)->delete();
 return redirect('admin/service')->with('success','Category Remove Success');
 
 }    
+
+//add data    
+public function add(Request $request)
+    {
+
+
+        
+       
+        $service = $request->validate([
+                                    
+                                    'name' => 'required|string|unique:services',
+                                    'description' => 'required|string',
+                                    'status' => 'required',
+        ]);
+        Categories::find($request->cat_id)->service()->create($service);
+        // $service = Service::create($service);
+        return redirect('admin/service')->with('success','Service Created Success');
+    }
+
 }

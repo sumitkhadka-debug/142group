@@ -31,7 +31,7 @@
                     <!--description-->    
                         <div class="form-group mb-3">
                             <label for="email">Description&nbsp;<span class="text-danger font-weight-bold" >*</span></label>
-                                <textarea name="description" id="editor" rows="30" cols="80" value="{{ old ('description') }}"></textarea>
+                                <textarea name="description"  rows="30" cols="80" value="{{ old ('description') }}"></textarea>
                                     @error('description')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror

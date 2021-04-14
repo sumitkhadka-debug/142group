@@ -44,7 +44,8 @@
                             <li>
                                 <span class="tf-nc">142 GROUP</span>
                                 <ul>
-                                    <li><span class="tf-nc">Structure</span>
+                                @foreach($all_dept as $dept)
+                                    <li><span class="tf-nc">{{ $dept->name}}</span>
                                         <ul class="staff_info">
                                             <li><span class="tf-nc">
                                                                 <div class="card">
@@ -57,6 +58,7 @@
                                                                     </div>
                                                                 </div>
                                                             </span></li>
+                                @endforeach
                                             <li><span class="tf-nc">
                                                                 <div class="card">
                                                                     <div class="card-body staff_details">
