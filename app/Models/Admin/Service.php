@@ -10,6 +10,8 @@ class Service extends Model
     protected $table = 'Services';
 
     protected $guarded = [];
+
+    protected $fillable = ['cat_id'];
     
     use HasFactory;
 

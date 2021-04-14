@@ -27,13 +27,14 @@
                     <!--user feedback-->
                     <div class="card mt-5 pl-3">
                         <h5 class="text-capitalize p-3 text-white text-center">User Feedback</h5>
+                        <form action="{{ url('/saveFeedback') }}" method="post" class="p-2">
+                            @csrf
                         <div id="feedback"></div>
                         <ul class="small pb-4">
                             <li>0-360 degree to angle your satisfaction</li>
                             <li>0 indicates worst imaginable satisfaction</li>
                             <li>360 indicates best imaginable satisfaction</li>
                         </ul>
-                        <form action="#" method="post" class="text-left">
                             <div class="form-group wow slideInDown" data-wow-duration="1.9s">
                                 <textarea name="message" id="message" rows="3" class="form-control text-white" required></textarea>
                                 <label class="text-white">Feedback Message</label>
@@ -46,6 +47,7 @@
                 </div>
                 <!-- middle box-->
                 <div class="col-sm-12 col-lg-5 office_address p-5">
+                @include('frontend.includes.message')
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade active show" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                             <div class="card">
@@ -76,25 +78,26 @@
                     </div>
                 </div>
                 <!--right box-->
-                <div class="col-lg-4 col-sm-12 pt-5">
+                <div class="col-lg-4 col-sm-12 pt-5">                 
                     <div class="card general_enquiry" style="background: transparent;">
                         <h5 class="text-white bg-dark p-3 text-capitalize">general enquiry</h5>
                         <!--enquiry form-->
-                        <form action="#" method="post" class="p-2">
+                        <form action="{{ url('/saveInquiry') }}" method="post" class="p-2">
+                        @csrf
                             <div class="form-group wow slideInDown" data-wow-duration="1s">
-                                <input type="text" class="form-control" required autofocus>
+                                <input type="text" class="form-control" required autofocus name="name" value="{{ old('name') }}">
                                 <label>Full Name</label>
                             </div>
                             <div class="form-group wow slideInDown" data-wow-duration="1.3s">
-                                <input type="text" class="form-control" required>
+                                <input type="text" class="form-control" required name="email"  value="{{ old('email') }}">
                                 <label>Email Address</label>
                             </div>
-                            <div class="form-group wow slideInDown" data-wow-duration="1.6s">
-                                <input type="number" class="form-control" required>
+                            <div class="form-group wow slideInDown" data-wow-duration="1.6s"> 
+                                <input type="number" class="form-control" required name="phone"  value="{{ old('phone') }}">
                                 <label>Contact Number</label>
                             </div>
                             <div class="form-group wow slideInDown" data-wow-duration="1.9s">
-                                <textarea name="message" id="message" rows="5" class="form-control" required></textarea>
+                                <textarea name="message" id="message" rows="5" class="form-control" required  value="{{ old(' message') }}"></textarea>
                                 <label>Message For us</label>
                             </div>
                             <div class="form-group wow slideInDown" data-wow-duration="2.1s">

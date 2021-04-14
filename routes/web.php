@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\BoardController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 
 use App\Models\Admin\Member;
@@ -65,14 +66,11 @@ use App\Models\Admin\Categories;
         });  
 
 //contact route
-    Route::get('/contact', function () 
-        {
-            $contact_details = Contact::all()->where('status',0);     
-            return view('frontend.contact.index',['contact_details'=>$contact_details]); 
-        });  
-
-//Auth routes    
-    // Auth::routes();
+    Route::get('/contact',[ContactController::class, 'index']);
+    Route::post('/saveInquiry',[ContactController::class, 'saveInquiry']);
+    Route::post('/saveFeedback',[ContactController::class, 'saveFeedback']);
+ 
+    Auth::routes();
     Route::get('logout', [LoginController::class, 'logout']);
 
 //admin dashboard
@@ -84,7 +82,6 @@ use App\Models\Admin\Categories;
     Route::post('/addAbout',[AboutController::class,'add']);
     Route::get('/deleteAbout/{id}',[AboutController::class,'destroy']);
 
-
 //admin service route
     Route::get('/admin/service',[ServiceController::class,'index']);
     Route::get('/admin/service/create',[ServiceController::class, 'create']);
@@ -94,7 +91,6 @@ use App\Models\Admin\Categories;
     Route::get('/deleteService/{id}',[ServiceController::class,'destroy']);  
     Route::get('/deleteCat/{id}',[ServiceController::class,'destroyCat']);  
 
-
 //admin member route
     Route::get('/admin/member',[MemberController::class,'index']);
     Route::get('/admin/member/create',[MemberController::class, 'create']);
@@ -102,7 +98,6 @@ use App\Models\Admin\Categories;
     Route::post('/addMember',[MemberController::class,'add']);       
     Route::post('/addDept',[MemberController::class,'addDept']);  
     Route::get('/deleteDept/{id}',[MemberController::class,'destroyDept']);    
-
 
 //admin board route
     Route::get('/admin/board',[BoardController::class,'index']);  

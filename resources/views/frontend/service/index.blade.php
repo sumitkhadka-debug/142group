@@ -23,7 +23,7 @@
                 <div class="col-lg-6 col-sm-12 collapse_card mt-5 service_category">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="text-uppercase font-weight-bold mb-3" data-bs-toggle="collapse" data-bs-target="#{{ str_replace(' ','',$cat['name'])}}">{{$cat['name']}} <img src="{{ asset('public_assets/images/circle.png') }}" alt="" class="img-fluid ml-3"></h4>
+                            <h4 class="text-uppercase font-weight-bold mb-3" data-bs-toggle="collapse" data-bs-target="#{{ str_replace(' ','',$cat['name'])}}">{{$cat['name']}}<img src="{{ asset('public_assets/images/circle.png') }}" alt="" class="img-fluid"></h4>
                         </div>
                     <div class="collapse show" id="{{ str_replace(' ','',$cat['name'])}}">
                         <!--geo eng-->

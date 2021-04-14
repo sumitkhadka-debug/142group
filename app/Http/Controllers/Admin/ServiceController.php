@@ -40,7 +40,6 @@ public function createCat()
 //add data    
 public function add(Request $request)
     {
-
         $service = new Service();
         $service = $request->validate([
                                     'cat_id' => 'required|integer',
@@ -49,7 +48,7 @@ public function add(Request $request)
                                     'status' => 'required',
         ]);
         Category::find($request->cat_id)->service()->create($service);
-        $service = Service::create($service);
+        // $service = Service::create($service);
         return redirect('admin/service')->with('success','Service Created Success');
     }
 

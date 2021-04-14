@@ -34,7 +34,7 @@ class LoginController extends Controller
     public function redirectTo()
     {
 
-        dd($type = Auth::user()->type);
+        $type = Auth::user()->type;
 
         if ($type == 'admin') {
             return '/admin';

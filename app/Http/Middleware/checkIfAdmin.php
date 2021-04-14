@@ -18,7 +18,7 @@ class checkIfAdmin
     public function handle(Request $request, Closure $next)
     {
 
-        if(Auth::user()->type  !== 'admin')
+        if($request->user()->type !== 'admin')
         {
             return redirect()->route('login');
         }
